@@ -15,15 +15,13 @@ interface systolic_array_MAC_if;
   logic value_ready;
   logic [DW-1:0] weight;                    // Input weight value to be pre-loaded
   logic [DW-1:0] in_value;                  // Input value to be multiplied
-  logic MAC_shift;                              // shift the input to the next array
-  logic [DW-1:0] in_pass;                  // Input value to be passed to next MAC
   logic [DW-1:0] in_accumulate;             // Input accumulate value from above
   logic [DW-1:0] out_accumulate;            // Output accumulate value
 
   // MAC Port for Array
   modport MAC(
-    input  start, weight, in_value, MAC_shift, in_accumulate,
-    output out_accumulate, in_pass, value_ready
+    input  start, weight, in_value, in_accumulate,
+    output out_accumulate, value_ready
   );
 endinterface
 

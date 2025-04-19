@@ -35,24 +35,6 @@ https://www.veripool.org/ftp/verilator_doc.pdf
 `timescale 1ns/1ps
 
 module sysarr_MAC(input logic clk, input logic nRST, systolic_array_MAC_if.MAC mac_if);
-    logic [DW-1:0] input_x;
-    logic [DW-1:0] nxt_input_x;
-    assign mac_if.in_pass = input_x;
-
-    // Latching MAC unit input value, to pass it on to the next 
-    always_ff @(posedge clk, negedge nRST) begin
-        if(nRST == 1'b0)begin
-            input_x <= '0;
-        end else begin
-            input_x <= nxt_input_x;
-        end 
-    end
-    always_comb begin
-        nxt_input_x = input_x;
-        if (mac_if.MAC_shift)begin
-            nxt_input_x = mac_if.in_value;
-        end
-    end
 
     logic run_latched;
     logic start_passthrough_1, start_passthrough_2, start_passthrough_3;    //, start_passthrough_4, start_passthrough_final;
@@ -93,13 +75,13 @@ module sysarr_MAC(input logic clk, input logic nRST, systolic_array_MAC_if.MAC m
     logic [12:0] mul_product_in;
     logic mul_round_loss_s1_out, mul_round_loss_s2;
 
-    // MUL takes in latched input_x from above
+    // MUL takes in latched mac_if.in_value from above
     // MUL_step1 is special in that contains a sequential multiplier. This means that other operations need to wait until it finishes, the MAC unit must not move to the next stage after just one clock cycle.
     // It also means that it needs an enable signal. This can be on for one or more clock cycles, I dont think it matters.
     // Since it is the very first thing in the MAC chain, i'm using mac_if.start as this enable signal.
     // The flipflop after this should hold its values, and NOT allow the start passthrough signal to advance until the the multiply finishes (mul_stall goes low)
     logic mul_stall;
-    MUL_step1 mul1 (clk, nRST, mac_if.start, input_x, mac_if.weight, mul_product_out, mul_carryout_out, mul_round_loss_s1_out, mul_stall);
+    MUL_step1 mul1 (clk, nRST, mac_if.start, mac_if.in_value, mac_if.weight, mul_product_out, mul_carryout_out, mul_round_loss_s1_out, mul_stall);
     
     // latching the run signal an extra time to fix a timing issue with mul_stall and mac_if.start
     logic start_passthrough_0;
@@ -126,7 +108,7 @@ module sysarr_MAC(input logic clk, input logic nRST, systolic_array_MAC_if.MAC m
                 start_passthrough_1 <= 0;
             end else begin
                 start_passthrough_1 <= start_passthrough_0;
-                mul_fp1_head_s2_in <= input_x[15:10];
+                mul_fp1_head_s2_in <= mac_if.in_value[15:10];
                 mul_fp2_head_s2_in <= mac_if.weight[15:10];
                 mul_carryout_in <= mul_carryout_out;
                 mul_product_in  <= mul_product_out;
@@ -321,27 +303,27 @@ endmodule
 //     /* verilator lint_off UNUSEDSIGNAL */
 //     systolic_array_MAC_if.MAC mac
 // );
-//     logic [DW-1:0] input_x;
-//     logic [DW-1:0] nxt_input_x;
-//     assign mac.in_pass = input_x;
+//     logic [DW-1:0] mac_if.in_value;
+//     logic [DW-1:0] nxt_mac_if.in_value;
+//     assign mac.in_pass = mac_if.in_value;
 
 //     always_ff @(posedge clk, negedge nRST) begin
 //         if(nRST == 1'b0)begin
-//             input_x <= '0;
+//             mac_if.in_value <= '0;
 //         end else begin
-//             input_x <= nxt_input_x;
+//             mac_if.in_value <= nxt_mac_if.in_value;
 //         end 
 //     end
 //     always_comb begin
-//         nxt_input_x = input_x;
+//         nxt_mac_if.in_value = mac_if.in_value;
 //         if (mac.MAC_shift)begin
-//             nxt_input_x = mac.in_value;
+//             nxt_mac_if.in_value = mac.in_value;
 //         end
 //     end
 //    always_comb begin
 //     mac.out_accumulate = '0;
 //     if (mac.count == ADD_LEN+MUL_LEN-1)begin
-//         mac.out_accumulate = (input_x * mac.weight) + mac.in_accumulate;
+//         mac.out_accumulate = (mac_if.in_value * mac.weight) + mac.in_accumulate;
 //     end
 // end
 // endmodule

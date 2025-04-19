@@ -93,11 +93,10 @@ module systolic_array_tb();
     begin
       int iterations;
       int c;
-      int unused;
       weights = 0;
       rows = -1;
       which = 0;
-      unused = $fgets(line, file);
+      $fgets(line, file);
       if (line == "Weights\n") begin
         which = 1;
         iterations = 3;
@@ -110,13 +109,13 @@ module systolic_array_tb();
         for (i = 0; i < N; i = i + 1) begin
           for (j = 0; j < N; j = j + 1) begin
             if (which == 1)begin
-              unused = $fscanf(file, "(%d,%d) ", temp_weights[i][j],temp_weight_cols[i][j]);
+              $fscanf(file, "(%x,%d) ", temp_weights[i][j],temp_weight_cols[i][j]);
             end else if (which == 2) begin
               c = $fgetc(file);
               // $display("char %d %d", c, i);
-              unused = $ungetc(c, file);
+              $ungetc(c, file);
               if (c==40)begin // another ( which means more inputs
-                unused = $fscanf(file, "(%d,%d,%d) ", temp_inputs[i][j],temp_indices[i][j],temp_ends[i][j]);
+                $fscanf(file, "(%x,%d,%d) ", temp_inputs[i][j],temp_indices[i][j],temp_ends[i][j]);
               end else if (rows == -1)begin
                 rows = i;
               end
@@ -124,14 +123,12 @@ module systolic_array_tb();
                 rows = N;
               end
             end else if (i == 0) begin
-              unused = $fscanf(file, "%d ", temp_partials[j]);
+              $fscanf(file, "%x ", temp_partials[j]);
             end
           end
         end
         which = which + 1;
-        unused = $fgets(line, file);
-        // $display("getmats line %s", line);
-        // $display("what what %d %d", weights, rows);
+        $fgets(line, file);
       end
       for (i = 0; i < N; i++)begin
         m_weights[i] = {>>{temp_weights[i]}};
@@ -145,9 +142,8 @@ module systolic_array_tb();
   endtask
   task get_v_output();
     begin
-      int unused;
       for (i = 0; i < N; i = i + 1) begin
-        unused = $fscanf(out_file, "%d ", temp_outputs[i]);
+        $fscanf(out_file, "%x ", temp_outputs[i]);
       end
       v_outputs = {>>{temp_outputs}};
     end
@@ -173,7 +169,7 @@ module systolic_array_tb();
     .nRST   (tb_nRST),
     .memory (memory_if.memory_array)
   );
-  int unused;
+  
   always @(posedge tb_clk) begin
     if (memory_if.out_en == 1'b1)begin
       if (v_outputs != memory_if.array_output)begin
@@ -181,7 +177,7 @@ module systolic_array_tb();
         $display("Our Output is");
         // for (y = 0; y < N; y++)begin
         for (y = N; y > 0; y--)begin
-          $write("%d, ", memory_if.array_output[y*DW-1-:DW]);
+          $write("%x, ", memory_if.array_output[y*DW-1-:DW]);
         end
         $display("");
       end else begin
@@ -190,19 +186,22 @@ module systolic_array_tb();
       $display("Correct Output is");
       // for (z = 0; z < N; z++)begin
       for (z = N; z > 0; z--)begin
-          $write("%d, ", v_outputs[z*DW-1-:DW]);
+          $write("%x, ", v_outputs[z*DW-1-:DW]);
       end
       $display("");
       done_out = $fgetc(out_file);
-      unused = $ungetc(done_out, out_file);
+      $ungetc(done_out, out_file);
       if (done_out > 0)begin
         get_v_output();
       end
     end
   end
   int done;
+  
   // Test Stimulus
   initial begin
+    $dumpfile("dump.vcd");  // For VCD format
+    $dumpvars(0, systolic_array_tb);
     memory_if.weight_en = '0;
     memory_if.input_en = '0;
     memory_if.partial_en = '0;
@@ -213,14 +212,10 @@ module systolic_array_tb();
     loaded_weights = 0;
     input_rows = 0;
     // any file
-    $system("/bin/python3 systolic_array_utils/matvec_creation.py sparse_test int 4 16");
-    // $system("/bin/python3 systolic_array_utils/matvec_creation.py sparse_test int 16 64");
-    file = $fopen("systolic_array_utils/sparse_test.txt", "r");
-    out_file = $fopen("systolic_array_utils/sparse_test_output.txt", "r");
-    // file = $fopen("systolic_array_utils/sparseops3fp_arr.txt", "r");
-    // out_file = $fopen("systolic_array_utils/sparseops3fp_output.txt", "r");
+    // $system("/bin/python3 systolic_array_utils/vecmat_mul.py systolic_array_utils/sparseops1");
+    file = $fopen("systolic_array_utils/sparseops1fp_arr.txt", "r");
+    out_file = $fopen("systolic_array_utils/sparseops1fp_output.txt", "r");
     reset();
-    // $display("get here?");
     // get_matrices(.weights(loaded_weights), .rows(input_rows));
     // $display("print rows %d", input_rows);
     // load_weights();
@@ -237,6 +232,9 @@ module systolic_array_tb();
     //   @(posedge tb_clk);
     // end
     // load_inputs(.rows(input_rows));
+    
+
+
 
     // wait_flag = 1;
     // while (wait_flag == 1) begin
@@ -250,33 +248,31 @@ module systolic_array_tb();
     // load_weights();
     // load_inputs(.rows(input_rows));
     // v();
-    done = $fgetc(file);
-    unused = $ungetc(done, file);
+
+    done = $fgetc(out_file);
+    $ungetc(done, out_file);
     get_v_output();
     while (done >= 0)begin
       get_matrices(.weights(loaded_weights), .rows(input_rows));
-      // $display("%d %d", loaded_weights, input_rows);
       if (loaded_weights == 1)begin
-        // $display("Load new weights");
-        load_weights();                          // DOUBLE BUFFERED WEIGHTS
         wait(memory_if.drained == 1'b1);
+        @(posedge tb_clk);
         // load weights and inputs 
-        // load_weights();                          // NO DOUBLE BUFFERED WEIGHTS
+        load_weights();
         load_inputs(.rows(input_rows));
       end else begin
-        // $display("Pipeline new inputs");
         wait(memory_if.fifo_has_space == 1'b1);
         // loads inputs
         load_inputs(.rows(input_rows));
       end
-      done = $fgetc(file);
-      unused = $ungetc(done, file);
+      done = $fgetc(out_file);
+      $ungetc(done, out_file);
+      
     end
-    // unused = $fgets(line, file);
-    // $display("%s", line);
-    // repeat(150) @(posedge tb_clk);
-    wait(memory_if.drained == 1'b1);
+    // // repeat(50) @(posedge tb_clk);
     wait (memory_if.out_en == 1'b1);
+    // // wait (memory_if.drained == 1'b1);
+    // $display("drained, %d", memory_if.drained);
 
     #50;
     $stop;

@@ -110,13 +110,13 @@ module systolic_array_tb();
         for (i = 0; i < N; i = i + 1) begin
           for (j = 0; j < N; j = j + 1) begin
             if (which == 1)begin
-              unused = $fscanf(file, "(%d,%d) ", temp_weights[i][j],temp_weight_cols[i][j]);
+              unused = $fscanf(file, "(%x,%d) ", temp_weights[i][j],temp_weight_cols[i][j]);
             end else if (which == 2) begin
               c = $fgetc(file);
               // $display("char %d %d", c, i);
               unused = $ungetc(c, file);
               if (c==40)begin // another ( which means more inputs
-                unused = $fscanf(file, "(%d,%d,%d) ", temp_inputs[i][j],temp_indices[i][j],temp_ends[i][j]);
+                unused = $fscanf(file, "(%x,%d,%d) ", temp_inputs[i][j],temp_indices[i][j],temp_ends[i][j]);
               end else if (rows == -1)begin
                 rows = i;
               end
@@ -124,7 +124,7 @@ module systolic_array_tb();
                 rows = N;
               end
             end else if (i == 0) begin
-              unused = $fscanf(file, "%d ", temp_partials[j]);
+              unused = $fscanf(file, "%x ", temp_partials[j]);
             end
           end
         end
@@ -147,7 +147,7 @@ module systolic_array_tb();
     begin
       int unused;
       for (i = 0; i < N; i = i + 1) begin
-        unused = $fscanf(out_file, "%d ", temp_outputs[i]);
+        unused = $fscanf(out_file, "%x ", temp_outputs[i]);
       end
       v_outputs = {>>{temp_outputs}};
     end
@@ -181,7 +181,7 @@ module systolic_array_tb();
         $display("Our Output is");
         // for (y = 0; y < N; y++)begin
         for (y = N; y > 0; y--)begin
-          $write("%d, ", memory_if.array_output[y*DW-1-:DW]);
+          $write("%x, ", memory_if.array_output[y*DW-1-:DW]);
         end
         $display("");
       end else begin
@@ -190,7 +190,7 @@ module systolic_array_tb();
       $display("Correct Output is");
       // for (z = 0; z < N; z++)begin
       for (z = N; z > 0; z--)begin
-          $write("%d, ", v_outputs[z*DW-1-:DW]);
+          $write("%x, ", v_outputs[z*DW-1-:DW]);
       end
       $display("");
       done_out = $fgetc(out_file);
@@ -213,12 +213,10 @@ module systolic_array_tb();
     loaded_weights = 0;
     input_rows = 0;
     // any file
-    $system("/bin/python3 systolic_array_utils/matvec_creation.py sparse_test int 4 16");
-    // $system("/bin/python3 systolic_array_utils/matvec_creation.py sparse_test int 16 64");
-    file = $fopen("systolic_array_utils/sparse_test.txt", "r");
-    out_file = $fopen("systolic_array_utils/sparse_test_output.txt", "r");
-    // file = $fopen("systolic_array_utils/sparseops3fp_arr.txt", "r");
-    // out_file = $fopen("systolic_array_utils/sparseops3fp_output.txt", "r");
+    // $system("/bin/python3 systolic_array_utils/matvec_creation.py sparse_fp_test fp 4 16");
+    $system("/bin/python3 systolic_array_utils/matvec_creation.py sparse_fp_test fp 16 64");
+    file = $fopen("systolic_array_utils/sparse_fp_test.txt", "r");
+    out_file = $fopen("systolic_array_utils/sparse_fp_test_output.txt", "r");
     reset();
     // $display("get here?");
     // get_matrices(.weights(loaded_weights), .rows(input_rows));
@@ -250,6 +248,7 @@ module systolic_array_tb();
     // load_weights();
     // load_inputs(.rows(input_rows));
     // v();
+
     done = $fgetc(file);
     unused = $ungetc(done, file);
     get_v_output();
@@ -277,6 +276,7 @@ module systolic_array_tb();
     // repeat(150) @(posedge tb_clk);
     wait(memory_if.drained == 1'b1);
     wait (memory_if.out_en == 1'b1);
+
 
     #50;
     $stop;

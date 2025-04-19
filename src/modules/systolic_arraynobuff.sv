@@ -31,18 +31,6 @@ module systolic_array(
     // Weight Registers
     logic [DW*N-1:0] weights [N-1:0];
     logic [IND*N-1:0] weight_cols [N-1:0];
-    // double buff
-    logic [DW*N-1:0] weights2 [N-1:0];
-    logic [IND*N-1:0] weight_cols2 [N-1:0];
-    // use weights 
-    logic [DW*N-1:0] use_weights [N-1:0];
-    logic [IND*N-1:0] use_weight_cols [N-1:0];
-    logic load_weight_ptr;
-    logic nxt_load_weight_ptr;
-    logic use_weight_ptr;
-    logic nxt_use_weight_ptr;
-    logic [N-1:0] weights_loaded;
-    logic [N-1:0] nxt_weights_loaded;
     // Output Registers
     logic [DW-1:0] outputs [N-1:0];
     logic out_rdy;
@@ -102,54 +90,19 @@ module systolic_array(
         end
     end
     // Weight Registers Generation
-    always_ff @(posedge clk, negedge nRST) begin : weights_pointer
-                if(nRST == 1'b0)begin
-                    load_weight_ptr <= '0;
-                    use_weight_ptr <= '0;
-                    weights_loaded <= '0;
-                end else begin
-                    load_weight_ptr <= nxt_load_weight_ptr;
-                    use_weight_ptr <= nxt_use_weight_ptr;
-                    weights_loaded <= nxt_weights_loaded;
-                end
-    end
-    always_comb begin
-        nxt_use_weight_ptr = use_weight_ptr;
-        nxt_load_weight_ptr = load_weight_ptr;
-        nxt_weights_loaded = weights_loaded;
-        if (memory.weight_en)begin
-            nxt_weights_loaded[memory_if.row_in_en] = 1'b1;
-        end
-        if (weights_loaded == '1)begin
-            nxt_load_weight_ptr = !load_weight_ptr;
-            nxt_weights_loaded = '0;
-        end
-        if (load_weight_ptr == use_weight_ptr && memory.drained)begin
-            nxt_use_weight_ptr = !use_weight_ptr;
-        end
-    end
     generate
         for (i = 0; i < N; i++) begin
             always_ff @(posedge clk, negedge nRST) begin : weights_registers
                 if(nRST == 1'b0)begin
                     weights[i] <= '0;
                     weight_cols[i] <= '0;
-                    weights2[i] <= '0;
-                    weight_cols2[i] <= '0;
                 end else if (load_row_w[i] == 1'b1) begin
-                    if (load_weight_ptr == '0)begin
-                        weights[i] <= weights_input;
-                        weight_cols[i] <= in_weights_cols;
-                    end else begin
-                        weights2[i] <= weights_input;
-                        weight_cols2[i] <= in_weights_cols;
-                    end
+                    weights[i] <= weights_input;
+                    weight_cols[i] <= in_weights_cols;
                 end
             end
         end
     endgenerate    
-    assign use_weights = use_weight_ptr ? weights2 : weights;
-    assign use_weight_cols = use_weight_ptr ? weight_cols2 : weight_cols;
     // Input Fifo Generation
     generate
         for (j = 0; j < N; j++) begin
@@ -190,8 +143,8 @@ module systolic_array(
                 assign any_ready[m*N + n] = pe_ifs[m*N + n].value_ready;
                 // end
                 assign pe_ifs[m*N + n].start = control_unit_if.PE_start[m*N + n];
-                assign pe_ifs[m*N + n].weight = use_weights[n][(N - m) * DW - 1 -: DW];
-                assign pe_ifs[m*N + n].weight_col = use_weight_cols[n][(N - m) * IND - 1 -: IND];
+                assign pe_ifs[m*N + n].weight = weights[n][(N - m) * DW - 1 -: DW];
+                assign pe_ifs[m*N + n].weight_col = weight_cols[n][(N - m) * IND - 1 -: IND];
                 if (n != 0)begin : PEInputForwarding
                     assign pe_ifs[m*N + n].in_value = pe_ifs[m*N + (n-1)].val_pass;
                     assign pe_ifs[m*N + n].in_ind = pe_ifs[m*N + (n-1)].ind_pass;
