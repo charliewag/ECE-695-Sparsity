@@ -9,18 +9,18 @@ module sysarr_IND_FIFO(
     systolic_array_IND_FIFO_if.IND_FIFO ind_fifo
 );
     // Internal storage for ind_FIFO
-    logic [DW-1:0] ind_fifo_mem [N-1:0]; //need space for two arrays 2 rows of matrix rows
-    logic [DW-1:0] nxt_ind_fifo_mem [N-1:0];
-    logic [IND-1:0] ind_fifo_ind [N-1:0]; //need space for two arrays 2 rows of matrix rows
-    logic [IND-1:0] nxt_ind_fifo_ind [N-1:0];
-    logic ind_fifo_end [N-1:0]; //need space for two arrays 2 rows of matrix rows
-    logic nxt_ind_fifo_end [N-1:0];
+    logic [DW-1:0] ind_fifo_mem [2*N-1:0]; //need space for two arrays 2 rows of matrix rows
+    logic [DW-1:0] nxt_ind_fifo_mem [2*N-1:0];
+    logic [IND-1:0] ind_fifo_ind [2*N-1:0]; //need space for two arrays 2 rows of matrix rows
+    logic [IND-1:0] nxt_ind_fifo_ind [2*N-1:0];
+    logic ind_fifo_end [2*N-1:0]; //need space for two arrays 2 rows of matrix rows
+    logic nxt_ind_fifo_end [2*N-1:0];
 
     // read and write pointer
-    logic [$clog2(N)-1:0] rd_ptr;
-    logic [$clog2(N)-1:0] nxt_rd_ptr;
-    logic [$clog2(N)-1:0]wrt_ptr;
-    logic [$clog2(N)-1:0]nxt_wrt_ptr;
+    logic [$clog2(2*N)-1:0] rd_ptr;
+    logic [$clog2(2*N)-1:0] nxt_rd_ptr;
+    logic [$clog2(2*N)-1:0]wrt_ptr;
+    logic [$clog2(2*N)-1:0]nxt_wrt_ptr;
 
     always_ff @(posedge clk or negedge nRST) begin
         if (!nRST) begin

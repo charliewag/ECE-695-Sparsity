@@ -18,15 +18,12 @@
 //    carry_out - signal if there is a carry out of the multiplication
 
 `timescale 1ns/1ps
+/* verilator lint_off UNUSEDSIGNAL */
 
 module MUL_step1 (
     input clk, nRST, active,
-    /* verilator lint_off UNUSEDSIGNAL */
     input [15:0] fp1_in,
-    /* verilator lint_off UNUSEDSIGNAL */
-    /* verilator lint_off UNUSEDSIGNAL */
     input [15:0] fp2_in,
-    
     output [12:0] product,
     output carry_out,
     output round_loss,

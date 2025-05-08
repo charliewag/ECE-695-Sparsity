@@ -50,6 +50,9 @@ module systolic_array(
     logic [N-1:0] add_rdy;
     logic [DW*N-1:0] flat_output;
     logic out_fifo_shift;
+    logic nxt_drained;
+    logic start;
+    logic nxt_start;
     // Generate variables
     genvar i,j,l,m,n,o,p;
     int q;
@@ -75,12 +78,27 @@ module systolic_array(
     // Instantiate Output Fifos
     systolic_array_FIFO_if out_fifos_ifs[N-1:0] ();
 
+    always_ff @(posedge clk, negedge nRST) begin
+        if(nRST == 1'b0)begin
+            memory.drained <= '1;
+            start <= 1'b1;
+        end else begin
+            start <= nxt_start;
+            memory.drained <= nxt_drained && (|any_ready || start);
+        end
+    end
+    always_comb begin
+        nxt_start = start;
+        if (memory.input_en)begin
+            nxt_start = 1'b0;
+        end
+    end
     always_comb begin : control_unit_connections
         // control_unit_if.weight_en = memory.weight_en;
         control_unit_if.input_en = memory.input_en;
         control_unit_if.partial_en = memory.partial_en;
         control_unit_if.acc_end_flags = acc_ens;
-        memory.drained = control_unit_if.drained;
+        nxt_drained = control_unit_if.drained;
         memory.fifo_has_space = control_unit_if.fifo_has_space;
     end
     //Selection Muxes for the input bus
@@ -91,41 +109,44 @@ module systolic_array(
         input_ends = '0;
         in_weights_cols = '0;
         load_row_w = '0;
-        if (memory_if.input_en) begin
+        if (memory.input_en) begin
             input_vals = memory.vals_in;
             input_inds = memory.inds_in;
             input_ends = memory.ends_in;
-        end else if (memory_if.weight_en) begin
+        end else if (memory.weight_en) begin
             weights_input = memory.vals_in;
             in_weights_cols = memory.inds_in;
-            load_row_w[memory_if.row_in_en] = 1'b1;
+            load_row_w[memory.row_in_en] = 1'b1;
         end
     end
     // Weight Registers Generation
     always_ff @(posedge clk, negedge nRST) begin : weights_pointer
-                if(nRST == 1'b0)begin
-                    load_weight_ptr <= '0;
-                    use_weight_ptr <= '0;
-                    weights_loaded <= '0;
-                end else begin
-                    load_weight_ptr <= nxt_load_weight_ptr;
-                    use_weight_ptr <= nxt_use_weight_ptr;
-                    weights_loaded <= nxt_weights_loaded;
-                end
+        if(nRST == 1'b0)begin
+            load_weight_ptr <= '0;
+            use_weight_ptr <= '0;
+            weights_loaded <= '0;
+        end else begin
+            load_weight_ptr <= nxt_load_weight_ptr;
+            use_weight_ptr <= nxt_use_weight_ptr;
+            weights_loaded <= nxt_weights_loaded;
+        end
     end
     always_comb begin
         nxt_use_weight_ptr = use_weight_ptr;
         nxt_load_weight_ptr = load_weight_ptr;
         nxt_weights_loaded = weights_loaded;
         if (memory.weight_en)begin
-            nxt_weights_loaded[memory_if.row_in_en] = 1'b1;
+            nxt_weights_loaded[memory.row_in_en] = 1'b1;
         end
         if (weights_loaded == '1)begin
             nxt_load_weight_ptr = !load_weight_ptr;
             nxt_weights_loaded = '0;
         end
-        if (load_weight_ptr == use_weight_ptr && memory.drained)begin
-            nxt_use_weight_ptr = !use_weight_ptr;
+        
+        if (load_weight_ptr == use_weight_ptr)begin
+            if (memory.drained)begin
+                nxt_use_weight_ptr = !use_weight_ptr;
+            end
         end
     end
     generate
@@ -167,7 +188,8 @@ module systolic_array(
     // Partial Sum Generation
     generate
         for (l = 0; l < N; l++) begin
-            sysarr_FIFO ps_fifos (
+            // sysarr_FIFO #(.SIZE(2*N)) ps_fifos (
+            sysarr_FIFO #(.SIZE(2*N)) ps_fifos (
                 .clk(clk),
                 .nRST(nRST),
                 .fifo(ps_fifos_ifs[l].FIFO));

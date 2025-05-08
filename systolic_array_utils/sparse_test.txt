@@ -4,7 +4,82 @@ Weights
 (4,0) (2,1) (6,2) (4,3)
 (6,0) (7,1) (2,2) (0,3)
 Inputs
-(8,0,1) (2,1,1) (8,2,1) (1,3,1) 
+(8,0,1) (7,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (2,2,1) (4,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (3,2,1) (6,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (2,1,1) (2,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(5,0,1) (5,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (1,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (5,1,1) (4,2,1) (8,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (5,1,1) (5,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (2,2,1) (5,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (2,1,1) (8,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (4,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(4,0,1) (7,1,1) (7,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(7,0,1) (4,1,1) (4,2,1) (1,3,1) 
 Partials
 0 0 0 0
 Multiply
@@ -14,9 +89,84 @@ Weights
 (8,0) (6,1) (1,2) (3,3)
 (3,0) (1,1) (7,2) (3,3)
 Inputs
-(1,0,1) (1,1,1) (5,2,1) (2,3,1) 
+(5,0,1) (1,1,1) (2,2,1) (4,3,1) 
 Partials
-114 63 88 78
+77 59 54 97
+Multiply
+Inputs
+(6,0,1) (8,1,1) (8,2,1) (6,3,1) 
+Partials
+30 44 20 54
+Multiply
+Inputs
+(1,0,1) (7,1,1) (9,2,1) (3,3,1) 
+Partials
+94 45 72 70
+Multiply
+Inputs
+(9,0,1) (9,1,1) (5,2,1) (5,3,1) 
+Partials
+36 15 32 10
+Multiply
+Inputs
+(1,0,1) (6,1,1) (9,2,1) (3,3,1) 
+Partials
+51 22 46 12
+Multiply
+Inputs
+(9,0,1) (8,1,1) (9,2,1) (2,3,1) 
+Partials
+26 25 20 24
+Multiply
+Inputs
+(0,0,1) (3,1,1) (5,2,1) (6,3,1) 
+Partials
+53 42 38 65
+Multiply
+Inputs
+(7,0,1) (3,1,1) (0,2,1) (7,3,1) 
+Partials
+34 45 24 54
+Multiply
+Inputs
+(0,0,1) (0,1,1) (3,2,1) (3,3,1) 
+Partials
+123 71 98 91
+Multiply
+Inputs
+(8,0,1) (7,1,1) (9,2,1) (1,3,1) 
+Partials
+104 72 88 63
+Multiply
+Inputs
+(5,0,1) (2,1,1) (5,2,1) (9,3,1) 
+Partials
+49 50 42 39
+Multiply
+Inputs
+(6,0,1) (6,1,1) (5,2,1) (2,3,1) 
+Partials
+116 66 100 48
+Multiply
+Inputs
+(9,0,1) (1,1,1) (4,2,1) (0,3,1) 
+Partials
+51 57 42 43
+Multiply
+Inputs
+(6,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+122 95 100 87
+Multiply
+Inputs
+(9,0,1) (6,1,1) (7,2,1) (2,3,1) 
+Partials
+49 17 42 25
+Multiply
+Inputs
+(2,0,1) (5,1,1) (4,2,1) (9,3,1) 
+Partials
+86 56 64 78
 Multiply
 Weights
 (7,0) (4,1) (3,2) (7,3)
@@ -24,9 +174,84 @@ Weights
 (8,0) (1,1) (9,2) (8,3)
 (1,0) (5,1) (5,2) (9,3)
 Inputs
-(8,0,1) (3,1,1) (0,2,1) (3,3,1) 
+(6,0,1) (4,1,1) (9,2,1) (9,3,1) 
 Partials
-151 122 113 123
+144 117 114 139
+Multiply
+Inputs
+(9,0,1) (0,1,1) (9,2,1) (2,3,1) 
+Partials
+190 170 142 154
+Multiply
+Inputs
+(4,0,1) (6,1,1) (4,2,1) (9,3,1) 
+Partials
+199 145 140 152
+Multiply
+Inputs
+(9,0,1) (4,1,1) (6,2,1) (0,3,1) 
+Partials
+211 121 178 96
+Multiply
+Inputs
+(4,0,1) (5,1,1) (3,2,1) (7,3,1) 
+Partials
+147 122 108 93
+Multiply
+Inputs
+(6,0,1) (6,1,1) (0,2,1) (4,3,1) 
+Partials
+182 152 155 128
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+126 117 79 121
+Multiply
+Inputs
+(4,0,1) (9,1,1) (6,2,1) (7,3,1) 
+Partials
+145 108 119 99
+Multiply
+Inputs
+(0,0,1) (2,1,1) (9,2,1) (6,3,1) 
+Partials
+147 113 110 121
+Multiply
+Inputs
+(9,0,1) (4,1,1) (9,2,1) (1,3,1) 
+Partials
+239 190 206 160
+Multiply
+Inputs
+(9,0,1) (5,1,1) (5,2,1) (0,3,1) 
+Partials
+161 160 126 118
+Multiply
+Inputs
+(0,0,1) (8,1,1) (4,2,1) (3,3,1) 
+Partials
+228 145 195 113
+Multiply
+Inputs
+(1,0,1) (4,1,1) (3,2,1) (7,3,1) 
+Partials
+122 129 124 99
+Multiply
+Inputs
+(5,0,1) (0,1,1) (1,2,1) (1,3,1) 
+Partials
+209 154 175 127
+Multiply
+Inputs
+(8,0,1) (3,1,1) (3,2,1) (2,3,1) 
+Partials
+183 126 163 113
+Multiply
+Inputs
+(7,0,1) (4,1,1) (9,2,1) (0,3,1) 
+Partials
+205 145 141 144
 Multiply
 Weights
 (7,0) (2,1) (5,2) (4,3)
@@ -34,9 +259,84 @@ Weights
 (9,0) (4,1) (1,2) (3,3)
 (3,0) (5,1) (1,2) (9,3)
 Inputs
-(0,0,1) (4,1,1) (3,2,1) (7,3,1) 
+(0,0,1) (9,1,1) (3,2,1) (6,3,1) 
 Partials
-240 192 204 173
+292 264 319 291
+Multiply
+Inputs
+(2,0,1) (9,1,1) (9,2,1) (6,3,1) 
+Partials
+294 327 311 226
+Multiply
+Inputs
+(4,0,1) (9,1,1) (4,2,1) (8,3,1) 
+Partials
+326 231 286 287
+Multiply
+Inputs
+(2,0,1) (1,1,1) (8,2,1) (2,3,1) 
+Partials
+308 247 308 155
+Multiply
+Inputs
+(0,0,1) (2,1,1) (7,2,1) (8,3,1) 
+Partials
+253 195 228 200
+Multiply
+Inputs
+(0,0,1) (8,1,1) (2,2,1) (0,3,1) 
+Partials
+276 208 241 200
+Multiply
+Inputs
+(7,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+223 223 205 186
+Multiply
+Inputs
+(9,0,1) (3,1,1) (2,2,1) (3,3,1) 
+Partials
+276 208 270 241
+Multiply
+Inputs
+(1,0,1) (9,1,1) (3,2,1) (8,3,1) 
+Partials
+224 206 241 230
+Multiply
+Inputs
+(2,0,1) (4,1,1) (1,2,1) (5,3,1) 
+Partials
+352 345 371 243
+Multiply
+Inputs
+(1,0,1) (1,1,1) (0,2,1) (2,3,1) 
+Partials
+259 277 248 177
+Multiply
+Inputs
+(2,0,1) (7,1,1) (6,2,1) (0,3,1) 
+Partials
+293 187 263 200
+Multiply
+Inputs
+(6,0,1) (3,1,1) (7,2,1) (3,3,1) 
+Partials
+203 178 219 198
+Multiply
+Inputs
+(0,0,1) (8,1,1) (6,2,1) (8,3,1) 
+Partials
+254 205 232 146
+Multiply
+Inputs
+(9,0,1) (4,1,1) (4,2,1) (2,3,1) 
+Partials
+274 221 273 169
+Multiply
+Inputs
+(7,0,1) (8,1,1) (0,2,1) (8,3,1) 
+Partials
+297 282 282 216
 Multiply
 Weights
 (1,0) (9,1) (3,2) (7,3)
@@ -44,7 +344,82 @@ Weights
 (8,0) (6,1) (8,2) (7,3)
 (4,0) (2,1) (0,2) (4,3)
 Inputs
-(8,0,1) (2,1,1) (8,2,1) (1,3,1) 
+(8,0,1) (7,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (2,2,1) (4,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (3,2,1) (6,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (2,1,1) (2,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(5,0,1) (5,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (1,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (5,1,1) (4,2,1) (8,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (5,1,1) (5,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (2,2,1) (5,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (2,1,1) (8,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (4,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(4,0,1) (7,1,1) (7,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(7,0,1) (4,1,1) (4,2,1) (1,3,1) 
 Partials
 0 0 0 0
 Multiply
@@ -54,9 +429,84 @@ Weights
 (1,0) (0,1) (6,2) (6,3)
 (9,0) (6,1) (6,2) (8,3)
 Inputs
-(1,0,1) (1,1,1) (5,2,1) (2,3,1) 
+(5,0,1) (1,1,1) (2,2,1) (4,3,1) 
 Partials
-57 120 147 40
+85 104 120 54
+Multiply
+Inputs
+(6,0,1) (8,1,1) (8,2,1) (6,3,1) 
+Partials
+56 60 52 20
+Multiply
+Inputs
+(1,0,1) (7,1,1) (9,2,1) (3,3,1) 
+Partials
+59 92 129 48
+Multiply
+Inputs
+(9,0,1) (9,1,1) (5,2,1) (5,3,1) 
+Partials
+35 20 52 20
+Multiply
+Inputs
+(1,0,1) (6,1,1) (9,2,1) (3,3,1) 
+Partials
+52 27 74 28
+Multiply
+Inputs
+(9,0,1) (8,1,1) (9,2,1) (2,3,1) 
+Partials
+25 36 36 8
+Multiply
+Inputs
+(0,0,1) (3,1,1) (5,2,1) (6,3,1) 
+Partials
+64 70 84 38
+Multiply
+Inputs
+(7,0,1) (3,1,1) (0,2,1) (7,3,1) 
+Partials
+63 60 59 24
+Multiply
+Inputs
+(0,0,1) (0,1,1) (3,2,1) (3,3,1) 
+Partials
+121 116 182 74
+Multiply
+Inputs
+(8,0,1) (7,1,1) (9,2,1) (1,3,1) 
+Partials
+126 93 157 58
+Multiply
+Inputs
+(5,0,1) (2,1,1) (5,2,1) (9,3,1) 
+Partials
+86 54 81 30
+Multiply
+Inputs
+(6,0,1) (6,1,1) (5,2,1) (2,3,1) 
+Partials
+108 90 163 52
+Multiply
+Inputs
+(9,0,1) (1,1,1) (4,2,1) (0,3,1) 
+Partials
+71 68 76 18
+Multiply
+Inputs
+(6,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+137 129 179 58
+Multiply
+Inputs
+(9,0,1) (6,1,1) (7,2,1) (2,3,1) 
+Partials
+61 26 79 42
+Multiply
+Inputs
+(2,0,1) (5,1,1) (4,2,1) (9,3,1) 
+Partials
+62 102 119 40
 Multiply
 Weights
 (1,0) (4,1) (7,2) (9,3)
@@ -64,9 +514,84 @@ Weights
 (7,0) (4,1) (2,2) (7,3)
 (9,0) (9,1) (2,2) (6,3)
 Inputs
-(8,0,1) (3,1,1) (0,2,1) (3,3,1) 
+(6,0,1) (4,1,1) (9,2,1) (9,3,1) 
 Partials
-114 144 190 101
+153 150 161 149
+Multiply
+Inputs
+(9,0,1) (0,1,1) (9,2,1) (2,3,1) 
+Partials
+236 174 142 218
+Multiply
+Inputs
+(4,0,1) (6,1,1) (4,2,1) (9,3,1) 
+Partials
+196 166 202 177
+Multiply
+Inputs
+(9,0,1) (4,1,1) (6,2,1) (0,3,1) 
+Partials
+216 156 121 225
+Multiply
+Inputs
+(4,0,1) (5,1,1) (3,2,1) (7,3,1) 
+Partials
+181 94 147 151
+Multiply
+Inputs
+(6,0,1) (6,1,1) (0,2,1) (4,3,1) 
+Partials
+214 173 111 207
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+147 101 150 134
+Multiply
+Inputs
+(4,0,1) (9,1,1) (6,2,1) (7,3,1) 
+Partials
+157 130 108 161
+Multiply
+Inputs
+(0,0,1) (2,1,1) (9,2,1) (6,3,1) 
+Partials
+154 122 218 116
+Multiply
+Inputs
+(9,0,1) (4,1,1) (9,2,1) (1,3,1) 
+Partials
+297 216 225 234
+Multiply
+Inputs
+(9,0,1) (5,1,1) (5,2,1) (0,3,1) 
+Partials
+203 113 170 189
+Multiply
+Inputs
+(0,0,1) (8,1,1) (4,2,1) (3,3,1) 
+Partials
+235 184 211 188
+Multiply
+Inputs
+(1,0,1) (4,1,1) (3,2,1) (7,3,1) 
+Partials
+161 146 109 129
+Multiply
+Inputs
+(5,0,1) (0,1,1) (1,2,1) (1,3,1) 
+Partials
+209 178 227 174
+Multiply
+Inputs
+(8,0,1) (3,1,1) (3,2,1) (2,3,1) 
+Partials
+220 145 142 217
+Multiply
+Inputs
+(7,0,1) (4,1,1) (9,2,1) (0,3,1) 
+Partials
+178 159 199 184
 Multiply
 Weights
 (8,0) (8,1) (0,2) (8,3)
@@ -74,9 +599,84 @@ Weights
 (5,0) (2,1) (0,2) (2,3)
 (0,0) (3,1) (3,2) (4,3)
 Inputs
-(0,0,1) (4,1,1) (3,2,1) (7,3,1) 
+(0,0,1) (9,1,1) (3,2,1) (6,3,1) 
 Partials
-161 206 279 218
+319 218 300 311
+Multiply
+Inputs
+(2,0,1) (9,1,1) (9,2,1) (6,3,1) 
+Partials
+326 255 237 329
+Multiply
+Inputs
+(4,0,1) (9,1,1) (4,2,1) (8,3,1) 
+Partials
+333 214 325 329
+Multiply
+Inputs
+(2,0,1) (1,1,1) (8,2,1) (2,3,1) 
+Partials
+283 239 212 354
+Multiply
+Inputs
+(0,0,1) (2,1,1) (7,2,1) (8,3,1) 
+Partials
+289 138 250 280
+Multiply
+Inputs
+(0,0,1) (8,1,1) (2,2,1) (0,3,1) 
+Partials
+280 227 205 339
+Multiply
+Inputs
+(7,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+218 169 243 250
+Multiply
+Inputs
+(9,0,1) (3,1,1) (2,2,1) (3,3,1) 
+Partials
+302 188 233 332
+Multiply
+Inputs
+(1,0,1) (9,1,1) (3,2,1) (8,3,1) 
+Partials
+279 144 286 188
+Multiply
+Inputs
+(2,0,1) (4,1,1) (1,2,1) (5,3,1) 
+Partials
+394 305 329 375
+Multiply
+Inputs
+(1,0,1) (1,1,1) (0,2,1) (2,3,1) 
+Partials
+267 196 263 325
+Multiply
+Inputs
+(2,0,1) (7,1,1) (6,2,1) (0,3,1) 
+Partials
+322 208 272 286
+Multiply
+Inputs
+(6,0,1) (3,1,1) (7,2,1) (3,3,1) 
+Partials
+262 167 187 222
+Multiply
+Inputs
+(0,0,1) (8,1,1) (6,2,1) (8,3,1) 
+Partials
+230 215 271 227
+Multiply
+Inputs
+(9,0,1) (4,1,1) (4,2,1) (2,3,1) 
+Partials
+279 213 230 334
+Multiply
+Inputs
+(7,0,1) (8,1,1) (0,2,1) (8,3,1) 
+Partials
+264 234 282 301
 Multiply
 Weights
 (6,0) (6,1) (3,2) (6,3)
@@ -84,7 +684,82 @@ Weights
 (5,0) (7,1) (8,2) (3,3)
 (0,0) (1,1) (1,2) (5,3)
 Inputs
-(8,0,1) (2,1,1) (8,2,1) (1,3,1) 
+(8,0,1) (7,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (2,2,1) (4,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (3,2,1) (6,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (2,1,1) (2,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(5,0,1) (5,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (1,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (5,1,1) (4,2,1) (8,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (5,1,1) (5,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (2,2,1) (5,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (2,1,1) (8,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (4,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(4,0,1) (7,1,1) (7,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(7,0,1) (4,1,1) (4,2,1) (1,3,1) 
 Partials
 0 0 0 0
 Multiply
@@ -94,9 +769,84 @@ Weights
 (0,0) (0,1) (9,2) (3,3)
 (6,0) (4,1) (0,2) (0,3)
 Inputs
-(1,0,1) (1,1,1) (5,2,1) (2,3,1) 
+(5,0,1) (1,1,1) (2,2,1) (4,3,1) 
 Partials
-90 72 121 15
+102 16 95 17
+Multiply
+Inputs
+(6,0,1) (8,1,1) (8,2,1) (6,3,1) 
+Partials
+48 0 52 6
+Multiply
+Inputs
+(1,0,1) (7,1,1) (9,2,1) (3,3,1) 
+Partials
+90 56 95 21
+Multiply
+Inputs
+(9,0,1) (9,1,1) (5,2,1) (5,3,1) 
+Partials
+36 48 33 22
+Multiply
+Inputs
+(1,0,1) (6,1,1) (9,2,1) (3,3,1) 
+Partials
+51 72 47 33
+Multiply
+Inputs
+(9,0,1) (8,1,1) (9,2,1) (2,3,1) 
+Partials
+24 16 35 4
+Multiply
+Inputs
+(0,0,1) (3,1,1) (5,2,1) (6,3,1) 
+Partials
+72 16 66 15
+Multiply
+Inputs
+(7,0,1) (3,1,1) (0,2,1) (7,3,1) 
+Partials
+54 8 55 11
+Multiply
+Inputs
+(0,0,1) (0,1,1) (3,2,1) (3,3,1) 
+Partials
+138 96 131 49
+Multiply
+Inputs
+(8,0,1) (7,1,1) (9,2,1) (1,3,1) 
+Partials
+117 112 117 55
+Multiply
+Inputs
+(5,0,1) (2,1,1) (5,2,1) (9,3,1) 
+Partials
+66 56 66 32
+Multiply
+Inputs
+(6,0,1) (6,1,1) (5,2,1) (2,3,1) 
+Partials
+108 136 120 55
+Multiply
+Inputs
+(9,0,1) (1,1,1) (4,2,1) (0,3,1) 
+Partials
+54 48 73 19
+Multiply
+Inputs
+(6,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+129 112 146 49
+Multiply
+Inputs
+(9,0,1) (6,1,1) (7,2,1) (2,3,1) 
+Partials
+66 56 43 36
+Multiply
+Inputs
+(2,0,1) (5,1,1) (4,2,1) (9,3,1) 
+Partials
+84 40 98 13
 Multiply
 Weights
 (8,0) (4,1) (5,2) (3,3)
@@ -104,9 +854,84 @@ Weights
 (6,0) (1,1) (2,2) (0,3)
 (2,0) (1,1) (4,2) (9,3)
 Inputs
-(8,0,1) (3,1,1) (0,2,1) (3,3,1) 
+(6,0,1) (4,1,1) (9,2,1) (9,3,1) 
 Partials
-120 105 172 25
+155 67 125 51
+Multiply
+Inputs
+(9,0,1) (0,1,1) (9,2,1) (2,3,1) 
+Partials
+162 134 142 74
+Multiply
+Inputs
+(4,0,1) (6,1,1) (4,2,1) (9,3,1) 
+Partials
+163 151 185 55
+Multiply
+Inputs
+(9,0,1) (4,1,1) (6,2,1) (0,3,1) 
+Partials
+149 187 93 112
+Multiply
+Inputs
+(4,0,1) (5,1,1) (3,2,1) (7,3,1) 
+Partials
+119 159 137 63
+Multiply
+Inputs
+(6,0,1) (6,1,1) (0,2,1) (4,3,1) 
+Partials
+109 137 122 90
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+146 86 129 27
+Multiply
+Inputs
+(4,0,1) (9,1,1) (6,2,1) (7,3,1) 
+Partials
+146 95 76 65
+Multiply
+Inputs
+(0,0,1) (2,1,1) (9,2,1) (6,3,1) 
+Partials
+168 120 167 49
+Multiply
+Inputs
+(9,0,1) (4,1,1) (9,2,1) (1,3,1) 
+Partials
+186 216 201 131
+Multiply
+Inputs
+(9,0,1) (5,1,1) (5,2,1) (0,3,1) 
+Partials
+172 151 138 70
+Multiply
+Inputs
+(0,0,1) (8,1,1) (4,2,1) (3,3,1) 
+Partials
+173 224 171 115
+Multiply
+Inputs
+(1,0,1) (4,1,1) (3,2,1) (7,3,1) 
+Partials
+81 91 109 77
+Multiply
+Inputs
+(5,0,1) (0,1,1) (1,2,1) (1,3,1) 
+Partials
+209 180 167 89
+Multiply
+Inputs
+(8,0,1) (3,1,1) (3,2,1) (2,3,1) 
+Partials
+139 157 112 114
+Multiply
+Inputs
+(7,0,1) (4,1,1) (9,2,1) (0,3,1) 
+Partials
+198 148 161 45
 Multiply
 Weights
 (9,0) (6,1) (8,2) (6,3)
@@ -114,9 +939,84 @@ Weights
 (4,0) (0,1) (7,2) (0,3)
 (5,0) (6,1) (3,2) (6,3)
 Inputs
-(0,0,1) (4,1,1) (3,2,1) (7,3,1) 
+(0,0,1) (9,1,1) (3,2,1) (6,3,1) 
 Partials
-205 178 223 71
+291 233 183 184
+Multiply
+Inputs
+(2,0,1) (9,1,1) (9,2,1) (6,3,1) 
+Partials
+285 259 214 146
+Multiply
+Inputs
+(4,0,1) (9,1,1) (4,2,1) (8,3,1) 
+Partials
+266 281 223 166
+Multiply
+Inputs
+(2,0,1) (1,1,1) (8,2,1) (2,3,1) 
+Partials
+267 308 163 158
+Multiply
+Inputs
+(0,0,1) (2,1,1) (7,2,1) (8,3,1) 
+Partials
+207 266 172 151
+Multiply
+Inputs
+(0,0,1) (8,1,1) (2,2,1) (0,3,1) 
+Partials
+193 225 164 144
+Multiply
+Inputs
+(7,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+247 184 187 88
+Multiply
+Inputs
+(9,0,1) (3,1,1) (2,2,1) (3,3,1) 
+Partials
+265 254 121 169
+Multiply
+Inputs
+(1,0,1) (9,1,1) (3,2,1) (8,3,1) 
+Partials
+239 230 187 141
+Multiply
+Inputs
+(2,0,1) (4,1,1) (1,2,1) (5,3,1) 
+Partials
+322 365 277 198
+Multiply
+Inputs
+(1,0,1) (1,1,1) (0,2,1) (2,3,1) 
+Partials
+289 271 207 113
+Multiply
+Inputs
+(2,0,1) (7,1,1) (6,2,1) (0,3,1) 
+Partials
+234 324 187 166
+Multiply
+Inputs
+(6,0,1) (3,1,1) (7,2,1) (3,3,1) 
+Partials
+141 176 125 158
+Multiply
+Inputs
+(0,0,1) (8,1,1) (6,2,1) (8,3,1) 
+Partials
+257 217 199 112
+Multiply
+Inputs
+(9,0,1) (4,1,1) (4,2,1) (2,3,1) 
+Partials
+236 250 169 163
+Multiply
+Inputs
+(7,0,1) (8,1,1) (0,2,1) (8,3,1) 
+Partials
+315 283 225 99
 Multiply
 Weights
 (7,0) (0,1) (5,2) (7,3)
@@ -124,7 +1024,82 @@ Weights
 (6,0) (9,1) (2,2) (6,3)
 (2,0) (2,1) (3,2) (7,3)
 Inputs
-(8,0,1) (2,1,1) (8,2,1) (1,3,1) 
+(8,0,1) (7,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (2,2,1) (4,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (0,1,1) (3,2,1) (6,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(1,0,1) (2,1,1) (2,2,1) (0,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(5,0,1) (5,1,1) (0,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(2,0,1) (6,1,1) (0,2,1) (1,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(8,0,1) (5,1,1) (4,2,1) (8,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (5,1,1) (5,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (2,2,1) (5,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (2,1,1) (8,2,1) (9,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(0,0,1) (5,1,1) (4,2,1) (2,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(4,0,1) (7,1,1) (7,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(3,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+0 0 0 0
+Multiply
+Inputs
+(7,0,1) (4,1,1) (4,2,1) (1,3,1) 
 Partials
 0 0 0 0
 Multiply
@@ -134,9 +1109,84 @@ Weights
 (9,0) (8,1) (3,2) (0,3)
 (5,0) (7,1) (0,2) (7,3)
 Inputs
-(1,0,1) (1,1,1) (5,2,1) (2,3,1) 
+(5,0,1) (1,1,1) (2,2,1) (4,3,1) 
 Partials
-103 95 88 51
+70 92 123 44
+Multiply
+Inputs
+(6,0,1) (8,1,1) (8,2,1) (6,3,1) 
+Partials
+14 30 66 16
+Multiply
+Inputs
+(1,0,1) (7,1,1) (9,2,1) (3,3,1) 
+Partials
+97 93 92 53
+Multiply
+Inputs
+(9,0,1) (9,1,1) (5,2,1) (5,3,1) 
+Partials
+45 25 34 36
+Multiply
+Inputs
+(1,0,1) (6,1,1) (9,2,1) (3,3,1) 
+Partials
+64 33 48 53
+Multiply
+Inputs
+(9,0,1) (8,1,1) (9,2,1) (2,3,1) 
+Partials
+17 17 28 12
+Multiply
+Inputs
+(0,0,1) (3,1,1) (5,2,1) (6,3,1) 
+Partials
+49 61 87 34
+Multiply
+Inputs
+(7,0,1) (3,1,1) (0,2,1) (7,3,1) 
+Partials
+21 33 72 23
+Multiply
+Inputs
+(0,0,1) (0,1,1) (3,2,1) (3,3,1) 
+Partials
+132 114 149 94
+Multiply
+Inputs
+(8,0,1) (7,1,1) (9,2,1) (1,3,1) 
+Partials
+109 74 127 94
+Multiply
+Inputs
+(5,0,1) (2,1,1) (5,2,1) (9,3,1) 
+Partials
+45 29 79 51
+Multiply
+Inputs
+(6,0,1) (6,1,1) (5,2,1) (2,3,1) 
+Partials
+124 74 106 97
+Multiply
+Inputs
+(9,0,1) (1,1,1) (4,2,1) (0,3,1) 
+Partials
+34 24 65 36
+Multiply
+Inputs
+(6,0,1) (1,1,1) (0,2,1) (7,3,1) 
+Partials
+112 85 143 92
+Multiply
+Inputs
+(9,0,1) (6,1,1) (7,2,1) (2,3,1) 
+Partials
+70 50 69 57
+Multiply
+Inputs
+(2,0,1) (5,1,1) (4,2,1) (9,3,1) 
+Partials
+76 82 92 41
 Multiply
 Weights
 (5,0) (0,1) (8,2) (5,3)
@@ -144,9 +1194,84 @@ Weights
 (1,0) (0,1) (4,2) (4,3)
 (3,0) (0,1) (7,2) (3,3)
 Inputs
-(8,0,1) (3,1,1) (0,2,1) (3,3,1) 
+(6,0,1) (4,1,1) (9,2,1) (9,3,1) 
 Partials
-125 144 120 77
+115 141 182 104
+Multiply
+Inputs
+(9,0,1) (0,1,1) (9,2,1) (2,3,1) 
+Partials
+100 154 208 144
+Multiply
+Inputs
+(4,0,1) (6,1,1) (4,2,1) (9,3,1) 
+Partials
+146 192 184 128
+Multiply
+Inputs
+(9,0,1) (4,1,1) (6,2,1) (0,3,1) 
+Partials
+138 146 202 179
+Multiply
+Inputs
+(4,0,1) (5,1,1) (3,2,1) (7,3,1) 
+Partials
+110 129 132 121
+Multiply
+Inputs
+(6,0,1) (6,1,1) (0,2,1) (4,3,1) 
+Partials
+96 167 200 127
+Multiply
+Inputs
+(8,0,1) (2,1,1) (4,2,1) (3,3,1) 
+Partials
+93 110 126 97
+Multiply
+Inputs
+(4,0,1) (9,1,1) (6,2,1) (7,3,1) 
+Partials
+93 84 159 128
+Multiply
+Inputs
+(0,0,1) (2,1,1) (9,2,1) (6,3,1) 
+Partials
+150 138 158 115
+Multiply
+Inputs
+(9,0,1) (4,1,1) (9,2,1) (1,3,1) 
+Partials
+176 215 282 190
+Multiply
+Inputs
+(9,0,1) (5,1,1) (5,2,1) (0,3,1) 
+Partials
+121 105 155 153
+Multiply
+Inputs
+(0,0,1) (8,1,1) (4,2,1) (3,3,1) 
+Partials
+181 168 223 183
+Multiply
+Inputs
+(1,0,1) (4,1,1) (3,2,1) (7,3,1) 
+Partials
+77 113 166 88
+Multiply
+Inputs
+(5,0,1) (0,1,1) (1,2,1) (1,3,1) 
+Partials
+174 124 205 178
+Multiply
+Inputs
+(8,0,1) (3,1,1) (3,2,1) (2,3,1) 
+Partials
+141 178 219 158
+Multiply
+Inputs
+(7,0,1) (4,1,1) (9,2,1) (0,3,1) 
+Partials
+148 141 162 149
 Multiply
 Weights
 (2,0) (3,1) (3,2) (2,3)
@@ -154,7 +1279,82 @@ Weights
 (6,0) (8,1) (8,2) (2,3)
 (5,0) (7,1) (3,2) (2,3)
 Inputs
-(0,0,1) (4,1,1) (3,2,1) (7,3,1) 
+(0,0,1) (9,1,1) (3,2,1) (6,3,1) 
 Partials
-180 239 140 110
+262 279 260 212
+Multiply
+Inputs
+(2,0,1) (9,1,1) (9,2,1) (6,3,1) 
+Partials
+227 240 261 240
+Multiply
+Inputs
+(4,0,1) (9,1,1) (4,2,1) (8,3,1) 
+Partials
+243 323 240 195
+Multiply
+Inputs
+(2,0,1) (1,1,1) (8,2,1) (2,3,1) 
+Partials
+231 239 235 248
+Multiply
+Inputs
+(0,0,1) (2,1,1) (7,2,1) (8,3,1) 
+Partials
+189 239 176 175
+Multiply
+Inputs
+(0,0,1) (8,1,1) (2,2,1) (0,3,1) 
+Partials
+146 273 222 157
+Multiply
+Inputs
+(7,0,1) (6,1,1) (0,2,1) (0,3,1) 
+Partials
+180 203 162 158
+Multiply
+Inputs
+(9,0,1) (3,1,1) (2,2,1) (3,3,1) 
+Partials
+196 221 215 203
+Multiply
+Inputs
+(1,0,1) (9,1,1) (3,2,1) (8,3,1) 
+Partials
+252 201 218 196
+Multiply
+Inputs
+(2,0,1) (4,1,1) (1,2,1) (5,3,1) 
+Partials
+298 318 331 283
+Multiply
+Inputs
+(1,0,1) (1,1,1) (0,2,1) (2,3,1) 
+Partials
+206 203 184 215
+Multiply
+Inputs
+(2,0,1) (7,1,1) (6,2,1) (0,3,1) 
+Partials
+228 241 251 220
+Multiply
+Inputs
+(6,0,1) (3,1,1) (7,2,1) (3,3,1) 
+Partials
+141 196 207 133
+Multiply
+Inputs
+(0,0,1) (8,1,1) (6,2,1) (8,3,1) 
+Partials
+212 167 218 203
+Multiply
+Inputs
+(9,0,1) (4,1,1) (4,2,1) (2,3,1) 
+Partials
+215 269 247 209
+Multiply
+Inputs
+(7,0,1) (8,1,1) (0,2,1) (8,3,1) 
+Partials
+255 223 205 233
 Multiply

@@ -4,19 +4,21 @@
 import sys_arr_pkg::*;
 /* verilator lint_off IMPORTSTAR */
 
-module sysarr_FIFO(
+module sysarr_FIFO#(
+    parameter SIZE = N
+)(
     input logic clk, nRST,
     systolic_array_FIFO_if.FIFO fifo
 );
     // Internal storage for FIFO
-    logic [DW-1:0] fifo_mem [N-1:0]; //need space for two arrays 1 row
-    logic [DW-1:0] nxt_fifo_mem [N-1:0];
+    logic [DW-1:0] fifo_mem [SIZE-1:0]; //need space for two arrays 1 row
+    logic [DW-1:0] nxt_fifo_mem [SIZE-1:0];
 
     // read and write pointer
-    logic [$clog2(N)-1:0] rd_ptr;
-    logic [$clog2(N)-1:0] nxt_rd_ptr;
-    logic [$clog2(N)-1:0] wrt_ptr;
-    logic [$clog2(N)-1:0] nxt_wrt_ptr;
+    logic [$clog2(SIZE):0] rd_ptr;
+    logic [$clog2(SIZE):0] nxt_rd_ptr;
+    logic [$clog2(SIZE):0] wrt_ptr;
+    logic [$clog2(SIZE):0] nxt_wrt_ptr;
 
     always_ff @(posedge clk or negedge nRST) begin
         if (!nRST) begin
@@ -40,6 +42,12 @@ module sysarr_FIFO(
         end
         if (fifo.shift)begin
             nxt_rd_ptr = rd_ptr + 1;    // Shift values forward 
+        end
+        if (wrt_ptr == SIZE)begin
+            nxt_wrt_ptr = '0;
+        end
+        if (rd_ptr == SIZE)begin
+            nxt_rd_ptr = '0;
         end
     end
 

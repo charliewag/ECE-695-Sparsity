@@ -29,6 +29,7 @@ module sysarr_control_unit(
     logic [N*N-1:0] nxt_PE_enables;
     logic [N-1:0] add_starts;
     logic [N-1:0] nxt_add_starts;
+    logic after_start;
 
     always_ff @(posedge clk, negedge nRST) begin
         if(nRST == 1'b0)begin
@@ -61,6 +62,9 @@ module sysarr_control_unit(
         end
         if (cu.in_fifo_shift[0])begin
             nxt_input_count = input_count - 1;
+        end
+        if (cu.input_en && cu.in_fifo_shift[0])begin
+            nxt_input_count = input_count;
         end
         if (input_loading && input_count == '0)begin
             nxt_input_loading = 1'b0;
@@ -105,10 +109,12 @@ module sysarr_control_unit(
             PE_start <= '0;
             PE_shift <= '0;
             PE_enables <= '0;
+            after_start <= '0;
         end else begin
             PE_start <= nxt_PE_start;
             PE_shift <= nxt_PE_shift;
             PE_enables <= nxt_PE_enables;
+            after_start <= PE_start;
         end 
     end
     always_comb begin
@@ -135,7 +141,8 @@ module sysarr_control_unit(
         if (first_start)begin //starting
             nxt_PE_enables[0] = 1'b1;
         end
-        if (cu.PE_value_ready)begin
+        // if (cu.PE_value_ready)begin
+        if (after_start)begin
             nxt_PE_enables = PE_enables<<1 | PE_enables<<N | {{(N*N-1){1'b0}},input_count!='0};
             for (w=1;w<N;w++)begin
                 if (PE_enables[N*w-1] == 1'b1 && PE_enables[N*w-N] == 1'b0) begin

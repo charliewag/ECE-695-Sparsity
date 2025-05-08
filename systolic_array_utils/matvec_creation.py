@@ -1,6 +1,8 @@
 import numpy as np
 import sys
 import struct
+import packing_algo
+
 np.random.seed(42)
 filename = sys.argv[1]
 type = sys.argv[2]
@@ -12,6 +14,8 @@ matrix_size = int(sys.argv[4])
 weights_shape = [matrix_size,matrix_size]
 # tile_size = 4
 weights = np.random.randint(0, 10, size=(weights_shape[0], weights_shape[1]))
+density = 1
+weights = packing_algo.generate_sparse_matrix(weights_shape[0], weights_shape[1], density)
 # print("weights",weights)
 inputs = np.random.randint(0, 10, size=weights_shape[1])
 # print("inputs",inputs)

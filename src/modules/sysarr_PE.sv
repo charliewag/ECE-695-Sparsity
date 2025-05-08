@@ -56,8 +56,6 @@ module sysarr_PE(
             count <= nxt_count;
         end 
     end
-    logic equal;
-    assign equal = ind_reg == pe.weight_col;
     always_comb begin
         nxt_end_reg = end_reg;
         nxt_acc_en_reg = acc_en_reg;
@@ -71,7 +69,7 @@ module sysarr_PE(
             nxt_ind_reg = pe.in_ind;
             nxt_value_reg = pe.in_value;
             nxt_acc_reg = pe.in_accumulate;
-            if (pe.in_ind == pe.weight_col)begin
+            if ((pe.in_ind == pe.weight_col) && (pe.weight != '0) && (pe.weight_col != -1))begin
                 nxt_mac_in_reg = pe.in_value;
             end
         end
